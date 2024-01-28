@@ -1,72 +1,56 @@
-﻿/*
-    while(true)
-    {
-        Console.WriteLine("Введите число или q для выхода:");
-        string input = Console.ReadLine();
+﻿/*  char[,] charArray = new char[,] { { 'a', 'b' }, { 'c', 'd' } };
 
-        if (input == "q")
-        {
-            break;
-        }
-        int num;
-        if (int.TryParse(input, out num))
-        {
-            int sum = 0;
-            while (num > 0)
-            {
-                sum = num % 10;
-                num = num / 10;
-            }
-            if (sum % 2 == 0)
-            {
-                Console.WriteLine("[STOP]");
-                break;
-            }
-        }
-        else 
-        {
-            Console.WriteLine("Некорректный ввод. Пожалуйста, введите целое числоили 'q'.");
-        }
+  string result = CreateStringFrom2DArray(charArray);
 
-    }
-    */
+  Console.WriteLine(result);
 
 
-/*  int[] num = new int[10];
-  Random rnd = new Random();
-  int EvenCount = 0;
-  for (int i = 0; i < num.Length; i++)
+string CreateStringFrom2DArray(char[,] array)
+{
+  string result = "";
+
+  for (int i = 0; i < array.GetLength(0); i++)
   {
-      num[i] = rnd.Next(100, 1000);
-      if (num[i] % 2 == 0)
+      for (int j = 0; j < array.GetLength(1); j++)
       {
-          EvenCount++;
+
+          result += array[i, j];
       }
-
-
   }
+  return result;
+}*/
 
-Console.WriteLine($"\nКоличество четных чисел в массиве: {EvenCount}");
-*/
+/*string input = "AbCdEfGh";
+string low = input.ToLower();
+string up = input.ToUpper();
+Console.WriteLine(low);
+Console.WriteLine(up);*/
 
-int[] numbers = { 1, 2, 3, 4, 5, 6, 7 };
-int temp;
+/*string input = "Arra";
+bool isPalindrome = IsPalindrome(input);
 
-Console.Write("Исходный массив: ");
-foreach (int num in numbers)
+Console.WriteLine(isPalindrome ? "Да" : "Нет");
+
+
+ bool IsPalindrome(string str)
 {
-    Console.Write(num + " ");
-}
+    
+    string normalized = new
+    string(str.Where(char.IsLetterOrDigit).ToArray()).ToLower();
 
-for (int i = 0; i < numbers.Length / 2; i++)
-{
-    temp = numbers[i];
-    numbers[i] = numbers[numbers.Length - 1 - i];
-    numbers[numbers.Length - 1 - i] = temp;
-}
+    return normalized.SequenceEqual(normalized.Reverse());
+}*/
 
-Console.Write("\nПеревернутый массив: ");
-foreach (int num in numbers)
+string input = "Hello my world";
+
+string result = ReverseWords(input);
+
+Console.WriteLine(result);
+
+string ReverseWords(string str)
 {
-    Console.Write(num + " ");
+
+string[] words = str.Split(' ');
+Array.Reverse(words);
+return string.Join(" ", words);
 }
