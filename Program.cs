@@ -1,56 +1,48 @@
-﻿/*  char[,] charArray = new char[,] { { 'a', 'b' }, { 'c', 'd' } };
+﻿/*Задача 1: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N. Использовать рекурсию, не использовать циклы.
+Console.Write("Введите значение m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите значение n: ");
+int n = Convert.ToInt32(Console.ReadLine());
 
-  string result = CreateStringFrom2DArray(charArray);
-
-  Console.WriteLine(result);
-
-
-string CreateStringFrom2DArray(char[,] array)
+void NToM(int m, int n)
 {
-  string result = "";
-
-  for (int i = 0; i < array.GetLength(0); i++)
+  if (n > m)
   {
-      for (int j = 0; j < array.GetLength(1); j++)
-      {
-
-          result += array[i, j];
-      }
+    System.Console.Write(m + " ");
+    NToM(m + 1, n);
   }
-  return result;
-}*/
-
-/*string input = "AbCdEfGh";
-string low = input.ToLower();
-string up = input.ToUpper();
-Console.WriteLine(low);
-Console.WriteLine(up);*/
-
-/*string input = "Arra";
-bool isPalindrome = IsPalindrome(input);
-
-Console.WriteLine(isPalindrome ? "Да" : "Нет");
-
-
- bool IsPalindrome(string str)
-{
-    
-    string normalized = new
-    string(str.Where(char.IsLetterOrDigit).ToArray()).ToLower();
-
-    return normalized.SequenceEqual(normalized.Reverse());
-}*/
-
-string input = "Hello my world";
-
-string result = ReverseWords(input);
-
-Console.WriteLine(result);
-
-string ReverseWords(string str)
-{
-
-string[] words = str.Split(' ');
-Array.Reverse(words);
-return string.Join(" ", words);
 }
+NToM(m, n); */
+
+/* Задача 2: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+
+Console.Write("Введите значение m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите значение n: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+int Akkerman(int m, int n)
+{
+  if (m == 0) return n + 1;
+  else if (n == 0) return Akkerman(m - 1, 1);
+  else return Akkerman(m - 1, Akkerman(m, n - 1));
+}
+
+Console.Write(Akkerman(m, n)); */
+
+/* Задача 3: Задайте произвольный массив. Выведете его элементы, начиная с конца. Использовать рекурсию, не использовать циклы. */
+
+void Reverse(int[] array, int i)
+{
+  if (i >= 0)
+  {
+    Console.Write(array[i] + " ");
+    Reverse(array, i - 1);
+  }
+  
+}
+
+int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+int i = array.Length - 1;
+
+Reverse(array, 8);
